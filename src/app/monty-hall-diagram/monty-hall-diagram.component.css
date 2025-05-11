@@ -1,27 +1,87 @@
 .diagram-container {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;
-    margin-bottom: 0 !important;
+  width: 100%;
+  height: 350px;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 375px) {
+  .diagram-container {
+    height: 150px;
+    max-width: 95%;
   }
-  
-  svg {
-    display: block;
-    width: 100%;
-    height: auto;
+}
+
+@media only screen and (min-width: 376px) and (max-width: 414px) {
+  .diagram-container {
+    height: 160px;
+    max-width: 95%;
   }
-  
-  @media (max-width: 768px) {
-    .diagram-container {
-      max-width: 90%;
-      overflow-x: hidden;
-    }
+}
+
+@media only screen and (min-width: 415px) and (max-width: 428px) {
+  .diagram-container {
+    height: 160px;
+    max-width: 95%;
+  }
+}
+
+@media only screen and (min-width: 429px) and (max-width: 500px) {
+  .diagram-container {
+    height: 160px;
+    max-width: 95%;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  .diagram-container {
+    height: 200px;
+    max-width: 95%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 834px) {
+  .diagram-container {
+    height: 300px;
+    max-width: 90%;
   }
 
-  @media (max-width: 968px) {
+  @media (orientation: portrait) {
     .diagram-container {
-      max-width: 95%;
-      overflow-x: hidden;
+      height: 250px;
     }
   }
+  
+  @media (orientation: landscape) {
+    .diagram-container {
+      height: 320px;
+    }
+  }
+}
+
+@media only screen and (min-width: 835px) {
+  .diagram-container {
+    height: 350px;
+    max-width: 900px;
+  }
+}
+
+@media (max-height: 700px) {
+  .diagram-container {
+    height: 55vh;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 320px) and (max-height: 653px) {
+  .diagram-container {
+    height: 150px;
+  }
+}

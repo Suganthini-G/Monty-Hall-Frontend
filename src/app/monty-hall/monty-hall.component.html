@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <div class="strategy-validation-container" *ngIf="(strategyInput.touched || formSubmitted) && changeDoor === undefined">
+          <div class="strategy-validation-container" *ngIf="(strategyInput.touched || formSubmitted) && (changeDoor === undefined || changeDoor === null)">
             <div class="validation-message">
               Please select a strategy.
             </div>

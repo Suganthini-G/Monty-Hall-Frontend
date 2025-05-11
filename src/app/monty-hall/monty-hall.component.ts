@@ -20,10 +20,17 @@ export class MontyHallComponent {
 
   runSimulation(): void {
     this.formSubmitted = true;
+
+    if (this.changeDoor === undefined || this.changeDoor === null) {
+      this.error = null;
+      this.loading = false;
+      return;
+    }
+
     this.loading = true;
     this.error = null;
-    
-    this.montyHallService.simulateGames(this.simulations  ?? 0, this.changeDoor ?? false)
+
+    this.montyHallService.simulateGames(this.simulations ?? 0, this.changeDoor)
       .subscribe({
         next: (data) => {
           this.results = data;
@@ -50,9 +57,10 @@ export class MontyHallComponent {
     this.formSubmitted = false;
     this.results = null;
     this.error = null;
-    
+    this.loading = false;
+  
     if (form) {
       form.resetForm();
     }
-  }
+  }  
 }

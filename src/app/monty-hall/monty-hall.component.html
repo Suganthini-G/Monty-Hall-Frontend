@@ -1,0 +1,179 @@
+<app-monty-hall-diagram></app-monty-hall-diagram>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Simulator</h2>
+    </div>
+    <div class="card-body">
+      
+      <form #simulatorForm="ngForm">
+        <div class="simulator-form">
+          <div class="form-group">
+            <div class="input-row">
+              <label for="simulations">Number of Simulations <span class="required">*</span></label>
+              <input 
+                type="number" 
+                id="simulations" 
+                name="simulations"
+                [(ngModel)]="simulations" 
+                #simulationInput="ngModel"
+                min="1" 
+                max="1000000" 
+                class="form-control"
+                required
+              >
+            </div>
+
+            <div class="validation-container" *ngIf="simulationInput.touched || formSubmitted">
+              <div *ngIf="(simulations != null || simulations != undefined) && simulations <= 0" class="validation-message">
+                Number of simulations must be greater than zero.
+              </div>
+              <div *ngIf="simulations === null || simulations === undefined" class="validation-message">
+                Please provide number of simulations.
+              </div>
+              <div *ngIf="(simulations != null || simulations != undefined) && simulations > 1000000" class="validation-message">
+                Number of simulations must be less than 1000000.
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group strategy-section">
+            <div class="strategy-header">
+              <label>Strategy <span class="required">*</span></label>
+            </div>
+            <div class="strategy-options">
+              <div class="strategy-option">
+                <input 
+                  type="radio" 
+                  id="switch" 
+                  name="doorStrategy" 
+                  [value]="true" 
+                  [(ngModel)]="changeDoor"
+                  #strategyInput="ngModel"
+                  required
+                >
+                <label for="switch">
+                  <span class="radio-indicator"></span>
+                  <div class="option-icon">🔄</div>
+                  <div class="option-text">Switch Door</div>
+                </label>
+              </div>
+              <div class="strategy-option">
+                <input 
+                  type="radio" 
+                  id="stay" 
+                  name="doorStrategy" 
+                  [value]="false" 
+                  [(ngModel)]="changeDoor"
+                >
+                <label for="stay">
+                  <span class="radio-indicator"></span>
+                  <div class="option-icon">🚪</div>
+                  <div class="option-text">Stay with Initial Choice</div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="strategy-validation-container" *ngIf="(strategyInput.touched || formSubmitted) && changeDoor === undefined">
+            <div class="validation-message">
+              Please select a strategy.
+            </div>
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button 
+            type="button"
+            (click)="runSimulation()" 
+            [disabled]="!simulations || loading || simulations <= 0" 
+            class="primary-button">
+            Simulate
+          </button>
+          <button 
+            type="button"
+            (click)="resetForm(simulatorForm)" 
+            [disabled]="loading" 
+            class="secondary-button">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Running simulation...</p>
+  </div>
+  
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="!loading && results" class="results-container">
+    <div class="results-header">
+      <h2>Simulation Results</h2>
+    </div>
+    
+    <div class="result-card">
+      <div class="result-header">
+        <h3>{{ results.changedDoor ? 'Switching Door' : 'Staying with Initial Choice' }}</h3>
+        <div class="badge">{{ results.simulations }} simulations</div>
+      </div>
+      
+      <div class="result-stats">
+        <div class="stat">
+          <div class="stat-value wins">{{ results.wins }}</div>
+          <div class="stat-label">Wins</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value losses">{{ results.losses }}</div>
+          <div class="stat-label">Losses</div>
+        </div>
+        <div class="stat win-percentage">
+          <div class="stat-value">{{ results.winPercentage.toFixed(1) }}%</div>
+          <div class="stat-label">Win Rate</div>
+        </div>
+      </div>
+      
+      <div class="result-chart">
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-color legend-wins"></div>
+            <span>Wins</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-losses"></div>
+            <span>Losses</span>
+          </div>
+        </div>
+        
+        <div class="chart-bar">
+          <div 
+            class="wins-bar" 
+            [style.width.%]="results.winPercentage"
+            [attr.title]="results.wins + ' wins (' + results.winPercentage.toFixed(1) + '%)'">
+          </div>
+          <div 
+            class="losses-bar" 
+            [style.width.%]="100 - results.winPercentage"
+            [attr.title]="results.losses + ' losses (' + (100 - results.winPercentage).toFixed(1) + '%)'">
+          </div>
+        </div>
+        
+        <div class="chart-labels">
+          <div>{{ results.winPercentage.toFixed(1) }}%</div>
+          <div>{{ (100 - results.winPercentage).toFixed(1) }}%</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conclusion" *ngIf="results">
+      <p *ngIf="results.simulations < 1000" class="recommendation-highlight">
+        For more accurate results that better demonstrate this mathematical principle, try running 1,000+ simulations.
+      </p>
+    </div>
+  </div>
+</div>

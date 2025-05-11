@@ -1,0 +1,74 @@
+<div class="diagram-container">
+    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="800" height="500" fill="#f8f9fa" />
+    
+      <text x="400" y="50" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2c3e50">Monty Hall Simulator</text>
+  
+      <g transform="translate(50, 120)">
+        <text x="100" y="0" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Initial Choice</text>
+
+        <rect x="0" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+        <rect x="70" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+        <rect x="140" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+
+        <text x="30" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">1</text>
+        <text x="100" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2</text>
+        <text x="170" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">3</text>
+
+        <circle cx="52" cy="70" r="5" fill="#f1c40f" />
+        <circle cx="122" cy="70" r="5" fill="#f1c40f" />
+        <circle cx="192" cy="70" r="5" fill="#f1c40f" />
+
+        <text x="100" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="#7f8c8d">You pick door 1</text>
+
+        <path d="M30,150 L30,130" stroke="#e74c3c" stroke-width="2" fill="none" />
+        <polygon points="30,125 25,135 35,135" fill="#e74c3c" />
+      </g>
+
+      <g transform="translate(300, 120)">
+        <text x="100" y="0" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Host Reveals</text>
+
+        <rect x="0" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+        <rect x="70" y="20" width="60" height="100" fill="#ecf0f1" stroke="#2c3e50" stroke-width="2" />
+        <rect x="140" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+
+        <text x="30" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">1</text>
+        <text x="100" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#2c3e50">2</text>
+        <text x="170" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">3</text>
+
+        <circle cx="52" cy="70" r="5" fill="#f1c40f" />
+        <circle cx="192" cy="70" r="5" fill="#f1c40f" />
+
+        <text x="100" y="75" font-family="Arial" font-size="28" text-anchor="middle" fill="#7f8c8d">🐐</text>
+
+        <text x="100" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="#7f8c8d">Host reveals a goat behind door 2</text>
+      </g>
+      
+      <g transform="translate(550, 120)">
+        <text x="100" y="0" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Final Choice</text>
+
+        <text x="100" y="-15" font-family="Arial" font-size="14" font-style="italic" text-anchor="middle" fill="#e74c3c">Should you switch to door 3?</text>
+
+        <rect x="0" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+        <rect x="70" y="20" width="60" height="100" fill="#ecf0f1" stroke="#2c3e50" stroke-width="2" />
+        <rect x="140" y="20" width="60" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="2" />
+
+        <text x="30" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">1</text>
+        <text x="100" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#2c3e50">2</text>
+        <text x="170" y="70" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">3</text>
+
+        <circle cx="52" cy="70" r="5" fill="#f1c40f" />
+        <circle cx="192" cy="70" r="5" fill="#f1c40f" />
+
+        <text x="100" y="75" font-family="Arial" font-size="28" text-anchor="middle" fill="#7f8c8d">🐐</text>
+
+        <path d="M30,135 L30,150" stroke="#7f8c8d" stroke-width="2" fill="none" />
+        <path d="M170,135 L170,150" stroke="#2ecc71" stroke-width="2" fill="none" />
+        <polygon points="30,130 25,140 35,140" fill="#7f8c8d" />
+        <polygon points="170,130 165,140 175,140" fill="#2ecc71" />
+
+        <text x="30" y="165" font-family="Arial" font-size="14" text-anchor="middle" fill="#7f8c8d">Stay</text>
+        <text x="170" y="165" font-family="Arial" font-size="14" text-anchor="middle" fill="#2ecc71">Switch</text>
+      </g>
+    </svg>
+  </div>

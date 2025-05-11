@@ -1,0 +1,27 @@
+.diagram-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+  }
+  
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .diagram-container {
+      max-width: 90%;
+      overflow-x: hidden;
+    }
+  }
+
+  @media (max-width: 968px) {
+    .diagram-container {
+      max-width: 95%;
+      overflow-x: hidden;
+    }
+  }

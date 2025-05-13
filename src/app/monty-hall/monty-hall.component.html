@@ -170,10 +170,13 @@
       </div>
     </div>
     
-    <div class="conclusion" *ngIf="results">
-      <p *ngIf="results.simulations < 1000" class="recommendation-highlight">
-        For more accurate results that better demonstrate this mathematical principle, try running 1,000+ simulations.
-      </p>
+    <div class="toast-container" *ngIf="showToast">
+      <div class="toast-message">
+        <span class="toast-text">
+          ⚠️ Try 1,000+ simulations for more statistically accurate results.
+        </span>
+        <button class="toast-close" (click)="closeToast()">×</button>
+      </div>
     </div>
   </div>
 </div>

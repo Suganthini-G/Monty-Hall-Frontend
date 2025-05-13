@@ -15,6 +15,7 @@ export class MontyHallComponent {
   results: SimulationResult | null = null;
   loading: boolean = false;
   error: string | null = null;
+  showToast: boolean = false;
 
   constructor(private montyHallService: MontyHallService) { }
 
@@ -49,6 +50,16 @@ export class MontyHallComponent {
           this.loading = false;
         }
       });
+      if (this.simulations && this.simulations < 1000) {
+        this.showToast = true;
+        setTimeout(() => {
+          this.showToast = false;
+        }, 5000);
+      }
+  }
+
+  closeToast() {
+    this.showToast = false;
   }
 
   resetForm(form: NgForm): void {
